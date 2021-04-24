@@ -9,7 +9,7 @@ services:
 script:
   - docker --version
   - docker build -t simple-node-travis .
-  - docker tag simple-node nanotorre/simple-node-travis:latest
+  - docker tag simple-node-travis nanotorre/simple-node-travis:latest
 
 
 after-success:
