@@ -6,13 +6,12 @@ node_js:
 services:
   - docker
 
-before_install:
+script:
+  - docker --version
+  - docker build -t simple-node-travis .
+  - docker tag simple-node nanotorre/simple-node-travis:latest
+
+
+after-success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t fer/simple-node-travis .
-
-
-deploy:
-  provider: script
-  script: bash docker_push
-  on:
-    branch: master
+  - docker push nanotorre/simple-node-travis:latest
