@@ -14,4 +14,4 @@ script:
 
 after-success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push nanotorre/simple-node-travis:latest
+  - docker push nanotorre/simple-node-travis
